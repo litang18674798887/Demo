@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>jdk8-demo</module>
+        <module>queue-demo</module>
     </modules>
     <packaging>pom</packaging>
 
