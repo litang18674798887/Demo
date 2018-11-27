@@ -10,6 +10,7 @@
     <modules>
         <module>jdk8-demo</module>
         <module>queue-demo</module>
+        <module>excel-demo</module>
     </modules>
     <packaging>pom</packaging>
 
