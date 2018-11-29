@@ -2,10 +2,7 @@ package com.lt.poi;
 
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.ss.usermodel.BorderStyle;
-import org.apache.poi.ss.usermodel.FillPatternType;
-import org.apache.poi.ss.usermodel.HorizontalAlignment;
-import org.apache.poi.ss.usermodel.VerticalAlignment;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.junit.Test;
 
@@ -343,6 +340,37 @@ public class PoiCellTest {
         //设置行的高度是50个点
         row.setHeightInPoints(50);
 
+
+
+        FileOutputStream out = new FileOutputStream(filePath);
+        //保存Excel文件
+        workbook.write(out);
+        //关闭文件流
+        out.close();
+        System.out.println("OK!");
+    }
+
+    @Test
+    public void test08() throws IOException {
+        //文件路径
+        String filePath = "C:\\Users\\67382\\Desktop\\sample.xls";
+        //创建Excel文件(Workbook)
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        //创建工作表(Sheet)
+        HSSFSheet sheet = workbook.createSheet("Test");
+        HSSFRow row = sheet.createRow(1);
+
+        HSSFCell cell = row.createCell(1);
+        //设置日期数据
+        cell.setCellValue(new Date());
+        //输出：false
+        System.out.println(DateUtil.isCellDateFormatted(cell));
+        HSSFCellStyle style =workbook.createCellStyle();
+        style.setDataFormat(HSSFDataFormat.getBuiltinFormat("m/d/yy h:mm"));
+        //设置日期样式
+        cell.setCellStyle(style);
+        //输出：true
+        System.out.println(DateUtil.isCellDateFormatted(cell));
 
 
         FileOutputStream out = new FileOutputStream(filePath);
