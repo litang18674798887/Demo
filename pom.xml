@@ -11,6 +11,8 @@
         <module>jdk8-demo</module>
         <module>queue-demo</module>
         <module>excel-demo</module>
+        <module>jvm-demo</module>
+        <module>example-demo</module>
     </modules>
     <packaging>pom</packaging>
 
